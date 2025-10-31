@@ -1,0 +1,8 @@
+Telas:
+    - Home: exibe as anúncios, promoções e produtos disponíveis na Shopee
+    - Product Details: exibe os detalhes de um produto
+    - Account: exibe as informações da conta do usuário
+
+Navegações: 
+    - Stack Navigation: entre as telas de Home e Product Details
+    - Tab Navigation: entre as telas de Home e Account
