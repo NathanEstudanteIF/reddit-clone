@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "shopee-clone",
-    "slug": "shopee-clone",
+    "name": "reddit-clone",
+    "slug": "reddit-clone",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "shopeeclone",
+    "scheme": "redditclone",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
