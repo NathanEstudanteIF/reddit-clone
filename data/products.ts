@@ -1,0 +1,36 @@
+export const products = [
+  {
+    id: 1,
+    title: "Smartphone Samsung Galaxy A15 128GB",
+    image: "https://images.unsplash.com/photo-1617056302364-1043bb5a43df?w=600",
+    price: 899.9,
+    sales: 8200,
+    discount: "-40%",
+    freeShipping: true,
+  },
+  {
+    id: 2,
+    title: "Tênis Nike Revolution 6 Masculino Corrida",
+    image: "https://images.unsplash.com/photo-1618354691511-3e65e8b7cc8b?w=600",
+    price: 299.9,
+    sales: 5600,
+    badge: "MAIS VENDIDO",
+  },
+  {
+    id: 3,
+    title: "Fone de Ouvido Bluetooth JBL Tune 510BT",
+    image: "https://images.unsplash.com/photo-1615010986860-f3a2f769cf6f?w=600",
+    price: 249.9,
+    sales: 11200,
+    discount: "-20%",
+    freeShipping: true,
+  },
+  {
+    id: 4,
+    title: "Cafeteira Expresso Dolce Gusto Genio S Plus",
+    image: "https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?w=600",
+    price: 499.9,
+    sales: 3300,
+    badge: "RECOMENDADO",
+  },
+];

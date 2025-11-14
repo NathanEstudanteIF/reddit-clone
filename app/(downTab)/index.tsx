@@ -1,51 +1,72 @@
-import { useRouter } from "expo-router";
-import { StyleSheet, View } from "react-native";
+import {
+  CurrencyCircleDollarIcon,
+  MagnifyingGlassIcon,
+  PackageIcon,
+  StorefrontIcon,
+  TicketIcon
+} from "phosphor-react-native";
+import React, { useState } from "react";
+import { ScrollView, StatusBar, StyleSheet, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import BannerCarousel from "@/components/BannerCarousel";
+import Header from "@/components/Header";
+import HorizontalScrollCategories from "@/components/HorizontalScrollCategories";
+import ProductCard from "@/components/ProductCard";
+import { bannerImages } from "@/data/bannerImages";
+import { products } from "@/data/products";
 
 export default function HomeScreen() {
-  const router = useRouter();
+  const insets = useSafeAreaInsets();
+  const [scrolled, setScrolled] = useState(false);
+
+  const categoriesList = [
+    { icon: CurrencyCircleDollarIcon, label: "Moedas",     color: "#f59e0b" },
+    { icon: TicketIcon,              label: "Cupons",     color: "#ee4c2d" },
+    { icon: MagnifyingGlassIcon,     label: "Achadinhos", color: "#2563eb" },
+    { icon: PackageIcon,             label: "Frete Grátis\nacima de R$10", color: "#16a34a" },
+    { icon: StorefrontIcon,          label: "Lojas",       color: "#dc2626" },
+  ];
 
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1, paddingTop: insets.top }}>
+      <StatusBar
+        translucent
+        backgroundColor={scrolled ? "#fff" : "transparent"}
+        barStyle={scrolled ? "dark-content" : "light-content"}
+      />
 
+      <Header scrolled={scrolled} />
+
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+        onScroll={(e) => setScrolled(e.nativeEvent.contentOffset.y > 1)}
+      >
+        <BannerCarousel images={bannerImages} />
+
+        <HorizontalScrollCategories categories={categoriesList} />
+
+
+        <View style={styles.productsGrid}>
+          {products.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </View>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  scrollView: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 24,
-    backgroundColor: "#fff",
   },
-  image: {
-    width: 240,
-    height: 240,
-    margin: 24,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "700",
-    margin: 12,
-  },
-  subtitle: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "#444",
-    lineHeight: 22,
-    margin: 12,
-  },
-  button: {
-    fontSize: 20,
-    margin: 12,
-    padding: 12,
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: "#ee4c2d",
-  },
-  buttonText: {
-    fontSize: 16,
-    color: "#ee4c2d",
+  productsGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    paddingHorizontal: 16,
+    gap: 12,
+    paddingBottom: 80,
   },
 });

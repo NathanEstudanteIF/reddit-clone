@@ -1,27 +1,22 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
+import Badge from '@/components/Badge';
 import { HapticTab } from '@/components/haptic-tab';
 import { Colors } from '@/constants/theme';
-
-import {
-  BellIcon,
-  HouseIcon,
-  ShoppingBagIcon,
-  UserIcon,
-  VideoCameraIcon
-} from 'phosphor-react-native';
+import { Tabs } from 'expo-router';
+import { BellIcon, HouseIcon, ShoppingBagIcon, UserIcon, VideoCameraIcon } from 'phosphor-react-native';
+import React from 'react';
+import { View } from 'react-native';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
         tabBarStyle: {
+          paddingTop: 4,
           height: 60,
         },
         tabBarLabelStyle: {
           fontSize: 11,
-          paddingTop: 5,
+          paddingTop: 4,
         },
         tabBarActiveTintColor: Colors['light'].tint,
         headerShown: false,
@@ -34,21 +29,21 @@ export default function TabLayout() {
           title: 'Início',
           tabBarIcon: ({ color, focused }) => (
             <HouseIcon
-              size={32}
+              size={28}
               color={color}
               weight={focused ? 'fill' : 'regular'}
             />
           ),
         }}
       />
-
+ 
       <Tabs.Screen
         name="officialProducts"
         options={{
           title: 'Oficiais',
           tabBarIcon: ({ color, focused }) => (
             <ShoppingBagIcon
-              size={32}
+              size={28}
               color={color}
               weight={focused ? 'fill' : 'regular'}
             />
@@ -62,7 +57,7 @@ export default function TabLayout() {
           title: 'Live e Vídeo',
           tabBarIcon: ({ color, focused }) => (
             <VideoCameraIcon
-              size={32}
+              size={28}
               color={color}
               weight={focused ? 'fill' : 'regular'}
             />
@@ -75,11 +70,14 @@ export default function TabLayout() {
         options={{
           title: 'Notificações',
           tabBarIcon: ({ color, focused }) => (
-            <BellIcon
-              size={32}
-              color={color}
-              weight={focused ? 'fill' : 'regular'}
-            />
+            <View>
+              <BellIcon
+                size={28}
+                color={color}
+                weight={focused ? 'fill' : 'regular'}
+              ></BellIcon>
+              <Badge count={13}></Badge>
+            </View>
           ),
         }}
       />
@@ -90,7 +88,7 @@ export default function TabLayout() {
           title: 'Eu',
           tabBarIcon: ({ color, focused }) => (
             <UserIcon
-              size={32}
+              size={28}
               color={color}
               weight={focused ? 'fill' : 'regular'}
             />
@@ -99,4 +97,5 @@ export default function TabLayout() {
       />
     </Tabs>
   );
+
 }
