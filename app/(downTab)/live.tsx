@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function LiveScreen() {
   const router = useRouter();
-
+  
   return (
     <View style={styles.container}>
       <Image

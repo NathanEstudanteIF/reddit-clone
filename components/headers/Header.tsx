@@ -1,8 +1,8 @@
 import { ChatCircleIcon, ShoppingCartIcon } from "phosphor-react-native";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import Badge from "./Badge";
-import SearchBar from "./SearchBar";
+import Badge from "../badges/IconNotificationBadge";
+import SearchBar from "../bars/SearchBar";
 
 type HeaderProps = {
   scrolled: boolean;

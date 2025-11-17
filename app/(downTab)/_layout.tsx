@@ -1,4 +1,4 @@
-import Badge from '@/components/Badge';
+import Badge from '@/components/badges/IconNotificationBadge';
 import { HapticTab } from '@/components/haptic-tab';
 import { Colors } from '@/constants/theme';
 import { Tabs } from 'expo-router';

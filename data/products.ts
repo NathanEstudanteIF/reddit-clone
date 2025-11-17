@@ -1,36 +1,55 @@
+import { ProductBadgeType } from "@/types/enums/ProductBadgeType";
+import { ProductShippingType } from "@/types/enums/ProductShippingType";
+
 export const products = [
   {
     id: 1,
-    title: "Smartphone Samsung Galaxy A15 128GB",
-    image: "https://images.unsplash.com/photo-1617056302364-1043bb5a43df?w=600",
-    price: 899.9,
+    title: "Bota Coturno SLZ Adventure Promoção",
+    images: [
+      require("../assets/images/productImages/product1Image1.jpeg"),
+    ],
+    price: 59.90,
     sales: 8200,
-    discount: "-40%",
-    freeShipping: true,
+    discount: 0.40,
+    badge: ProductBadgeType.INDICATE,
+    shipping: ProductShippingType.NATIONAL,
   },
   {
     id: 2,
-    title: "Tênis Nike Revolution 6 Masculino Corrida",
-    image: "https://images.unsplash.com/photo-1618354691511-3e65e8b7cc8b?w=600",
-    price: 299.9,
+    title: "Lenovo GM2 PRO Fone de ouvido para jogos de baixa latência",
+    images: [
+      require("../assets/images/productImages/product2Image1.jpeg"),
+    ],
+    price: 46.90,
     sales: 5600,
-    badge: "MAIS VENDIDO",
+    discount: 0.33,
+    badge: ProductBadgeType.OFICIAL,
+    shipping: ProductShippingType.INTERNATIONAL,
   },
   {
     id: 3,
-    title: "Fone de Ouvido Bluetooth JBL Tune 510BT",
-    image: "https://images.unsplash.com/photo-1615010986860-f3a2f769cf6f?w=600",
-    price: 249.9,
-    sales: 11200,
-    discount: "-20%",
-    freeShipping: true,
+    title: "H'maston SN15 Fone de ouvido Bluetooth sem fio montado na cabeça",
+    images: [
+      require("../assets/images/productImages/product3Image1.jpg"),
+      require("../assets/images/productImages/product3Image2.jpg"),
+      require("../assets/images/productImages/product3Image3.jpg"),
+    ],
+    price: 105.99,
+    sales: 491,
+    discount: 0.47,
+    badge: ProductBadgeType.OFICIAL,
+    shipping: ProductShippingType.NATIONAL,
   },
   {
     id: 4,
     title: "Cafeteira Expresso Dolce Gusto Genio S Plus",
-    image: "https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?w=600",
+    images: [
+      require("../assets/images/productImages/product4Image1.jpeg"),
+    ],
     price: 499.9,
-    sales: 3300,
-    badge: "RECOMENDADO",
+    sales: 330,
+    discount: 0,
+    badge: ProductBadgeType.NONE,
+    shipping: ProductShippingType.NONE,
   },
 ];

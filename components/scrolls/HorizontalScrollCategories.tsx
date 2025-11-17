@@ -1,21 +1,19 @@
-import { IconProps } from "phosphor-react-native";
 import React, { useRef, useState } from "react";
 import {
-    Dimensions,
-    NativeScrollEvent,
-    NativeSyntheticEvent,
-    ScrollView,
-    StyleSheet,
-    View,
+  Dimensions,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ScrollView,
+  StyleSheet,
+  View,
 } from "react-native";
-import CategoryIcon from "./CategoryIcon";
+import CategoryIcon from "../icons/CategoryIcon";
 
 const { width } = Dimensions.get("window");
 
 export type CategoryData = {
-  icon: React.ComponentType<IconProps>;
+  image: any;
   label: string;
-  color: string;
 };
 
 type Props = {
@@ -28,7 +26,6 @@ export default function HorizontalScrollCategories({ categories }: Props) {
 
   const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const x = e.nativeEvent.contentOffset.x;
-
     const contentWidth = e.nativeEvent.contentSize.width - width;
 
     const progress = contentWidth > 0 ? x / contentWidth : 0;
@@ -37,32 +34,31 @@ export default function HorizontalScrollCategories({ categories }: Props) {
 
   return (
     <View style={styles.wrapper}>
-        <ScrollView
-            ref={scrollRef}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            onScroll={handleScroll}
-            scrollEventThrottle={16}
-            contentContainerStyle={styles.content}
-            >
-            {categories.map((cat, index) => (
-                <CategoryIcon
-                key={index}
-                icon={cat.icon}
-                label={cat.label}
-                color={cat.color}
-                />
+      <ScrollView
+        ref={scrollRef}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        onScroll={handleScroll}
+        scrollEventThrottle={16}
+        contentContainerStyle={styles.content}
+      >
+        {categories.map((cat, index) => (
+          <CategoryIcon
+            key={index}
+            image={cat.image}
+            label={cat.label}
+          />
         ))}
-        </ScrollView>
+      </ScrollView>
 
-        <View style={styles.indicatorBackground}>
-            <View
-                style={[
-                styles.indicator,
-                { transform: [{ translateX: position * 18 }] },
-                ]}
-            />
-        </View>
+      <View style={styles.indicatorBackground}>
+        <View
+          style={[
+            styles.indicator,
+            { transform: [{ translateX: position * 18 }] },
+          ]}
+        />
+      </View>
     </View>
   );
 }
@@ -70,7 +66,8 @@ export default function HorizontalScrollCategories({ categories }: Props) {
 const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: "#fff",
-    paddingVertical: 16,
+    paddingTop: 8,
+    marginTop: -28,
     marginBottom: 8,
   },
   content: {
@@ -83,8 +80,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#e5e5e5",
     borderRadius: 2,
     overflow: "hidden",
-    marginTop: 10,
     alignSelf: "center",
+    marginVertical: 16,
   },
   indicator: {
     width: 12,

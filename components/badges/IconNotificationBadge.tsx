@@ -7,11 +7,11 @@ type BadgeProps = {
 
 export default function Badge({ count } : BadgeProps) {
 
-    return (
-        <View style={styles.badge}>
-            <Text style={styles.badgeText}>{count}</Text>
-        </View>
-    )
+  return (
+      <View style={styles.badge}>
+          <Text style={styles.badgeText}>{count}</Text>
+      </View>
+  )
 }
 
 const styles = StyleSheet.create({
